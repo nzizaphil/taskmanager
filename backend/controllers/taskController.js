@@ -1,6 +1,4 @@
-// Copy from the provided code snippet
-
-
+// 
 const Task = require("../models/Task");
 const getTasks = async (req, res) => {
   try {
@@ -10,6 +8,8 @@ const getTasks = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Add task
 const addTask = async (req, res) => {
   const { title, description, deadline } = req.body;
   try {
@@ -24,6 +24,8 @@ const addTask = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Update task
 
 const updateTask = async (req, res) => {
   const { title, description, completed, deadline } = req.body;
@@ -40,6 +42,8 @@ const updateTask = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Delete task
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
